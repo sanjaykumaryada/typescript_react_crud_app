@@ -1,0 +1,77 @@
+.main-crud-div{
+    width: 100%;
+    height: auto;
+    background-color: rgb(172, 177, 177,0.222);
+    border-radius: 10px;
+}
+.crud-form{
+    width: 40%;
+    height: 67vh;
+    position: absolute;
+    right: 0%;
+    background-color: rgba(8, 9, 9, 0.884);
+    border-radius: 10px;
+    padding: 50px;
+   
+}
+.name-form{
+    margin-bottom: 50px;
+}
+.email-form{
+    margin-bottom: 50px;
+}
+.address-form{
+    margin-bottom: 50px;
+}
+.name-form label{
+         font-size: 30px;
+         color: whitesmoke;
+}
+.name-form input{
+    font-size: 30px;
+    border-radius: 20px;
+}
+.email-form label{
+    font-size: 30px;
+    color: whitesmoke;
+}
+.email-form input{
+font-size: 30px;
+border-radius: 20px;
+}
+.address-form label{
+    font-size: 30px;
+    color: whitesmoke;
+}
+.address-form textArea{
+font-size: 30px;
+border-radius: 20px;
+}
+.btn{
+    font-size: 30px;
+    width: auto;
+    border-radius: 20px;
+    margin-left: 10px;
+}
+.userslist-div{
+    width: 50%;
+    height: 100%;
+    background-color: rgba(8, 9, 9, 0.884);
+    border-radius: 20px;
+    padding-bottom: 20px;
+}
+.crud-form h1{
+    color: aliceblue;
+}
+.userslist-div h1{
+    color: aliceblue;
+}
+.usercard-div{
+    width: 80%;
+    height: auto;
+    background-color: aliceblue;
+    border-radius: 20px;
+    text-align: center;
+    margin-left: 30px;
+}
+
