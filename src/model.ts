@@ -3,3 +3,7 @@ export interface IUser{
     email:string,
     address:string
 }
+export interface IUsersList{
+    id:number;
+    user:IUser;
+}

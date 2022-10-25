@@ -4,7 +4,7 @@ import "./crud.css"
 interface IUserProp{
     user:IUser;
     setUser:React.Dispatch<React.SetStateAction<IUser>>;
-    handleCreateUser:()=>void;
+    handleCreateUser:(e:React.FormEvent)=>void;
    edit:boolean;
    handleUpdate:()=>void;
 }
@@ -41,7 +41,7 @@ const UserForm :React.FC<IUserProp>=({user,setUser,handleCreateUser, edit, handl
        />
      </div>
      { edit ? (  <button className='btn' onClick={handleUpdate}>Update</button>):(
-       <button className='btn' onClick={()=>handleCreateUser()}>Create User</button>
+       <button className='btn' onClick={(e)=>handleCreateUser(e)}>Create User</button>
      )
      
     }

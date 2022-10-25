@@ -1,35 +1,38 @@
 import React, { useState } from 'react'
-import { IUser } from '../model';
+import { IUser, IUsersList } from '../model';
 import "./crud.css";
 import UserForm from './UserForm';
 import UserList from './UserList';
 const Crud=()=>{
-    const [user, setUser]=useState<IUser>({ name:"", email:"",address:""});
-    const [usersList, setUsersList]=useState<IUser[]>([]);
+    const [user, setUser]=useState<IUser>({name:"", email:"",address:""});
+    const [usersList, setUsersList]=useState<IUsersList[]>([]);
     const [edit, setEdit]=useState<boolean>(false);
     const [updateIndex,setUpdateIndex]=useState<number>(0);
-    const handleCreateUser=()=>{
-          usersList.push(user);
+    const handleCreateUser=(e:React.FormEvent)=>{
+      e.preventDefault();
+          setUsersList([...usersList,{id:Date.now(),user}]);
           setUser({
             name:"", email:"",address:""
           })
     }
-    const handleDelete=(index:number)=>{
-        usersList.splice(index,1);
-        setUsersList([...usersList])
+  
+    const handleDelete=(id:number)=>{
+         setUsersList(usersList.filter(user=> user.id!==id))
     }
-    const handleEdit=(index:number)=>{
-       setUser(usersList[index]);
+    const handleEdit=(id:number)=>{
+        const editUser=usersList.filter((users=>users.id==id));
+        setUser(editUser[0].user)
        setEdit(true);
-       setUpdateIndex(index);
+       setUpdateIndex(id);
     }
     const handleUpdate=()=>{
-           usersList.splice(updateIndex,1,user);
-           setUsersList([...usersList])  
+    usersList.map((users=>users.id==updateIndex  ?(users.user=user):(null)));
        setEdit(false);
        setUser({ name:"", email:"",address:""});
     }
+    const handleUser=()=>{
 
+    }
   return (
     <div className='main-crud-div'>
          <h1>CRUD APP</h1>
