@@ -39,7 +39,7 @@ const Crud=()=>{
          <UserForm handleCreateUser={handleCreateUser} edit={edit} handleUpdate={handleUpdate}/>
          </UserContext.Provider>
          <UsersListContext.Provider value={{usersList}}>
-         <UserList handleDelete={handleDelete} handleEdit={handleEdit}/>
+         <UserList  handleDelete={handleDelete} handleEdit={handleEdit}/>
         </UsersListContext.Provider>
     </div>
   )

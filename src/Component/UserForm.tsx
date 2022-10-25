@@ -1,4 +1,5 @@
 import React, { useContext } from 'react'
+import { IUser } from '../model'
 import "./crud.css"
 import {UserContext} from "./Crud";
 interface IUserProp{
@@ -8,7 +9,7 @@ interface IUserProp{
 }
  
 const UserForm :React.FC<IUserProp>=({handleCreateUser, edit, handleUpdate})=> {
-  const {user, setUser}=useContext(UserContext);
+  const {user,setUser}=useContext(UserContext);
  
   return (
     <div className='form-content'>

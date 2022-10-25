@@ -1,10 +1,9 @@
 import React from 'react'
 interface PopUpProps{
-    popup:boolean
     onConfirm:()=>void;
     onCancel:()=>void;
 }
-const PopUp:React.FC<PopUpProps>=({popup,onConfirm, onCancel})=> {
+const PopUp:React.FC<PopUpProps>=({onConfirm, onCancel})=> {
   return (
     <div className='popup-div'>
         <h2>Do You Really Want To Delete?</h2>

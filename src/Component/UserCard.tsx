@@ -20,7 +20,7 @@ const UserCard:React.FC<IUserProps>=({user, index, handleDelete,handleEdit})=> {
            <h3>{user.user.address}</h3>
            <button className='btn' onClick={()=>handleEdit(index)}>Edit</button>
         <button className='btn' onClick={()=>setPopup(!popup)}>Delete</button>
-        { popup ? (<PopUp popup={popup}  onConfirm={()=>handleDelete(index)} onCancel={()=>handlePopup()}/>):( null)
+        { popup ? (<PopUp  onConfirm={()=>handleDelete(index)} onCancel={()=>handlePopup()}/>):( null)
         
     }
     </div>
