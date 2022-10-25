@@ -9,8 +9,10 @@ handleDelete:(i:number)=>void;
 handleEdit:(i:number)=>void;
 }
 const UserCard:React.FC<IUserProps>=({user, index, handleDelete,handleEdit})=> {
-
-    const [popup, setPopup]=useState<boolean>(false);
+  const [popup, setPopup]=useState<boolean>(false);
+  const handlePopup=()=>{
+    setPopup(!popup);
+  }
   return (
     <div className='usercard-div'>
            <h3>{user.user.name}</h3>
@@ -18,7 +20,7 @@ const UserCard:React.FC<IUserProps>=({user, index, handleDelete,handleEdit})=> {
            <h3>{user.user.address}</h3>
            <button className='btn' onClick={()=>handleEdit(index)}>Edit</button>
         <button className='btn' onClick={()=>setPopup(!popup)}>Delete</button>
-        { popup ? (<PopUp popup={popup} setPopup={setPopup} index={index} handleDelete={handleDelete}/>):( null)
+        { popup ? (<PopUp popup={popup}  onConfirm={()=>handleDelete(index)} onCancel={()=>handlePopup()}/>):( null)
         
     }
     </div>

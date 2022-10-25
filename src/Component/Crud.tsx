@@ -20,13 +20,13 @@ const Crud=()=>{
          setUsersList(usersList.filter(user=> user.id!==id))
     }
     const handleEdit=(id:number)=>{
-        const editUser=usersList.filter((users=>users.id==id));
+        const editUser=usersList.filter((users=>users.id===id));
         setUser(editUser[0].user)
        setEdit(true);
        setUpdateIndex(id);
     }
     const handleUpdate=()=>{
-    usersList.map((users=>users.id==updateIndex  ?(users.user=user):(null)));
+    usersList.map((users=>users.id===updateIndex  ?(users.user=user):(null)));
        setEdit(false);
        setUser({ name:"", email:"",address:""});
     }
