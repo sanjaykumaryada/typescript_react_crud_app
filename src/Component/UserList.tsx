@@ -1,13 +1,14 @@
-import React from 'react'
-import { IUser,IUsersList } from '../model'
+import React, { useContext } from 'react'
+import { IUsersList } from '../model'
 import "./crud.css"
 import UserCard from './UserCard';
+import {UsersListContext} from "./Crud";
 interface IUserListProps{
  usersList:IUsersList[];
  handleDelete:(i:number)=>void;
  handleEdit:(index:number)=>void;
 }
-const UserList:React.FC<IUserListProps>=({usersList, handleDelete, handleEdit})=> {
+const UserList:React.FC<IUserListProps>=({ usersList,handleDelete, handleEdit})=> {
   return (
     <div className='userslist-div'>
         <h1>List of Users</h1>

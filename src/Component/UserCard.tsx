@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { IUser, IUsersList } from '../model';
+import { IUsersList } from '../model';
 import "./crud.css";
 import PopUp from './PopUp';
 interface IUserProps{

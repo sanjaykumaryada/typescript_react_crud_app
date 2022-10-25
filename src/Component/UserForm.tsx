@@ -1,14 +1,15 @@
-import React from 'react'
-import { IUser } from '../model'
+import React, { useContext } from 'react'
 import "./crud.css"
+import {UserContext} from "./Crud";
 interface IUserProp{
-    user:IUser;
-    setUser:React.Dispatch<React.SetStateAction<IUser>>;
     handleCreateUser:(e:React.FormEvent)=>void;
    edit:boolean;
    handleUpdate:()=>void;
 }
-const UserForm :React.FC<IUserProp>=({user,setUser,handleCreateUser, edit, handleUpdate})=> {
+ 
+const UserForm :React.FC<IUserProp>=({handleCreateUser, edit, handleUpdate})=> {
+  const {user, setUser}=useContext(UserContext);
+ 
   return (
     <div className='form-content'>
     <form className='crud-form'>

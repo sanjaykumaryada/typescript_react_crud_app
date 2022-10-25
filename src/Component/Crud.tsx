@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
-import { IUser, IUsersList } from '../model';
+import React, { createContext,useState } from 'react'
+import { IUser, IUserContext, IUsersList, IUsersListContext} from '../model';
 import "./crud.css";
 import UserForm from './UserForm';
 import UserList from './UserList';
+   export const UserContext=createContext<IUserContext>({}as IUserContext);
+   export const UsersListContext=createContext<IUsersListContext |[]>([]);
 const Crud=()=>{
     const [user, setUser]=useState<IUser>({name:"", email:"",address:""});
     const [usersList, setUsersList]=useState<IUsersList[]>([]);
     const [edit, setEdit]=useState<boolean>(false);
-    const [updateIndex,setUpdateIndex]=useState<number>(0);
+    const [updateIndex,setUpdateIndex]=useState<number>();
     const handleCreateUser=(e:React.FormEvent)=>{
       e.preventDefault();
           setUsersList([...usersList,{id:Date.now(),user}]);
@@ -30,16 +32,17 @@ const Crud=()=>{
        setEdit(false);
        setUser({ name:"", email:"",address:""});
     }
-    const handleUser=()=>{
-
-    }
   return (
     <div className='main-crud-div'>
          <h1>CRUD APP</h1>
-         <UserForm user={user} setUser={setUser} handleCreateUser={handleCreateUser} edit={edit} handleUpdate={handleUpdate}/>
+         <UserContext.Provider value={{user,setUser}}>
+         <UserForm handleCreateUser={handleCreateUser} edit={edit} handleUpdate={handleUpdate}/>
+         </UserContext.Provider>
+         <UsersListContext.Provider value={{usersList}}>
          <UserList usersList={usersList} handleDelete={handleDelete} handleEdit={handleEdit}/>
+        </UsersListContext.Provider>
     </div>
   )
 }
 
-export default Crud;
+export default Crud
