@@ -4,7 +4,7 @@ import "./crud.css";
 import UserForm from './UserForm';
 import UserList from './UserList';
    export const UserContext=createContext<IUserContext>({}as IUserContext);
-   export const UsersListContext=createContext<IUsersListContext |[]>([]);
+   export const UsersListContext=createContext<IUsersListContext>({} as IUsersListContext);
 const Crud=()=>{
     const [user, setUser]=useState<IUser>({name:"", email:"",address:""});
     const [usersList, setUsersList]=useState<IUsersList[]>([]);
@@ -39,7 +39,7 @@ const Crud=()=>{
          <UserForm handleCreateUser={handleCreateUser} edit={edit} handleUpdate={handleUpdate}/>
          </UserContext.Provider>
          <UsersListContext.Provider value={{usersList}}>
-         <UserList usersList={usersList} handleDelete={handleDelete} handleEdit={handleEdit}/>
+         <UserList handleDelete={handleDelete} handleEdit={handleEdit}/>
         </UsersListContext.Provider>
     </div>
   )
