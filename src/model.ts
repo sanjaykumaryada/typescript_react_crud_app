@@ -1,3 +1,5 @@
+import React from "react";
+
 export interface IUser{
     name:string,
     email:string,
@@ -10,7 +12,6 @@ export interface IUsersList{
 export interface IUserContext{
     user:IUser;
    setUser:React.Dispatch<React.SetStateAction<IUser>>;
-}
-export interface IUsersListContext{
-    usersList:IUsersList[];
+   usersList:IUsersList[];
+   edit:boolean
 }

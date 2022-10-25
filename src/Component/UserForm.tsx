@@ -3,13 +3,11 @@ import { IUser } from '../model'
 import "./crud.css"
 import {UserContext} from "./Crud";
 interface IUserProp{
-    handleCreateUser:(e:React.FormEvent)=>void;
-   edit:boolean;
-   handleUpdate:()=>void;
+  handleUserForm:(e:React.FormEvent,user:IUser)=>void;
 }
  
-const UserForm :React.FC<IUserProp>=({handleCreateUser, edit, handleUpdate})=> {
-  const {user,setUser}=useContext(UserContext);
+const UserForm :React.FC<IUserProp>=({handleUserForm})=> {
+  const {user,setUser, edit}=useContext(UserContext);
  
   return (
     <div className='form-content'>
@@ -42,8 +40,8 @@ const UserForm :React.FC<IUserProp>=({handleCreateUser, edit, handleUpdate})=> {
           onChange={(e)=>setUser({...user, address:e.target.value})}
        />
      </div>
-     { edit ? (  <button className='btn' onClick={handleUpdate}>Update</button>):(
-       <button className='btn' onClick={(e)=>handleCreateUser(e)}>Create User</button>
+     { edit ? (  <button className='btn' onClick={(e)=>handleUserForm(e,user)}>Update</button>):(
+       <button className='btn' onClick={(e)=>handleUserForm(e, user)}>Create User</button>
      )
      
     }
